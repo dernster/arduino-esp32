@@ -282,7 +282,7 @@ esp_err_t WiFiGenericClass::_eventCallback(void *arg, system_event_t *event)
             WiFiSTAClass::_setStatus(WL_DISCONNECTED);
         }
     } else if(event->event_id == SYSTEM_EVENT_STA_START) {
-        WiFiSTAClass::_setStatus(WL_DISCONNECTED);
+        WiFiSTAClass::_setStatus(WL_IDLE_STATUS);
     } else if(event->event_id == SYSTEM_EVENT_STA_STOP) {
         WiFiSTAClass::_setStatus(WL_NO_SHIELD);
     } else if(event->event_id == SYSTEM_EVENT_STA_GOT_IP) {
@@ -458,4 +458,3 @@ int WiFiGenericClass::hostByName(const char* aHostname, IPAddress& aResult)
     }
     return 1;
 }
-
